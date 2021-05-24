@@ -1,0 +1,225 @@
+body
+{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#welcome
+{
+    background: #CCCCCC;
+}
+
+.bill_header
+{
+    background: #3757F6 !important;
+    color: #FFFFFF !important;
+}
+
+header
+{
+    height: 8% !important;
+    width: 100% !important;
+}
+
+article
+{
+    height: 92% !important;
+    width: 100% !important;
+}
+
+/*WIDTH*/
+
+.w5{width: 5% !important}.w-10{width: 10% !important}.w-15{width: 15% !important}
+.w-20{width: 20% !important}.w-30{width: 30% !important}.w-40{width: 40% !important}
+.w-55{width: 55% !important}.w-60{width: 60% !important}.w-65{width: 65% !important}.w-70{width: 70% !important}
+.w-80{width: 80% !important}.w-85{width: 85% !important}.w-90{width: 90% !important}
+.w-95{width: 95% !important}
+
+/*WIDTH*/
+
+/*HEIGHT*/
+
+.h-5{height: 5% !important}.h-10{height: 10% !important}.h-15{height: 15% !important}.h-20{height: 20% !important}
+.h-30{height: 30% !important}.h-35{height: 35% !important}.h-40{height: 40% !important}.h-55{height: 55% !important}
+.h-60{height: 60% !important}.h-65{height: 65% !important}.h-70{height: 70% !important}.h-80{height: 80% !important}
+.h-85{height: 85% !important}.h-90{height: 90% !important}.h-95{height: 95% !important}.h-fit{height: fit-content !important}
+
+/*HEIGHT*/
+
+
+
+
+/*FONT*/
+.f_size_xxx_large{font-size: xxx-large;}.f_size_xx_large{font-size: xx-large;}.f_size_x_large{font-size: x-large;}
+.f_size_large{font-size: large;}.f_size_large{font-size: larger;}.f_size_xx_small{font-size: xx-small;}
+.f_size_x_small{font-size: x-small;}.f_size_small{font-size: small;}.f_size_smaller {font-size: smaller;}
+/*FONT*/
+
+/*BUTTON COLOR*/
+.btn-black {color:#fff;background-color: #000000;border-color: #020101}.btn-black:hover {color:#fff;background-color: #1f1f1f;border-color: #020101}
+.btn-report {color:#fff;background-color: #251358;border-color: #251358}.btn-report:hover {color:#fff;background-color: #3A1D88;border-color: #251358}
+.btn-setup {color:#fff;background-color: #515357;border-color: #515357}.btn-setup:hover {color:#fff;background-color: #7D8288;border-color: #515357}
+.btn-settings {color:#fff;background-color: #a83520;border-color: #a83520}.btn-settings:hover {color:#fff;background-color: #D44329;border-color: #a83520}
+.btn-lg {color:#fff;background-color: #248e6d;border-color: #248e6d}.btn-lg:hover {color:#fff;background-color: #2CCC94;border-color: #248e6d}
+.btn-bill{background: #232428; color: #fdfdfe; border-color: #232428}.btn-bill:hover{background: #9DA8DF; color: #fdfdfe; border-color: #232428}
+.btn-bill-active{background: #9DA8DF; color: #fdfdfe !important; border-color: #232428}.btn-bill-active:hover{background: #767fa7; color: #fdfdfe !important; border-color: #232428}
+.btn-traditional{background: #FF8360; color: #010001 !important; border-color: #7DCE82}.btn-traditional:hover{background: #E8E288; color: #010001 !important; border-color: #FF8360}
+.btn-facility{background: #1DA2B9; color: #ffffff !important; border-color: #1DA2B9}  .btn-facility:hover{background: #2BCAE8; color: #ffffff !important; border-color: #1DA2B9}
+.bill-in-btn{background: #9DA8DF; color: #fdfdfe !important; border-color: #9DA8DF}
+.bill-in-btn:hover{background: #737dac; color: #fdfdfe !important; border-color: #9DA8DF}
+
+/*BUTTON COLOR*/
+
+/*TEXT COLOR*/
+.text-bx
+{
+    color: #9DA8DF !important;
+}
+
+.btn-in
+{
+    width: 80px;
+    height: 40px;
+}
+/*BACKGROUND COLORS*/
+.bg-black{background: #020204; color: #fdfdfe}
+.bg-dark-x{background-color: #505050 !important}
+.bg-bill-default{background: #3A1D88 !important; color: #fdfdfe !important}
+.bg-bill-header{background: #3757F6 !important; color: #fdfdfe}
+/*BACKGROUND COLORS*/
+
+
+.key_number
+{
+    width: 30% !important;
+    height: 50px !important;
+    background: #000000;
+    color: #fdfdfe;
+    font-weight: bolder;
+}
+
+.cat_box_shadow
+{
+    box-shadow: 3px 3px #7DCE82;
+}
+
+.key_number_hw
+{
+
+    height: 50px !important;
+    background: rgb(17, 17, 17);
+    color: #fdfdfe;
+    font-size: x-large;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 0px !important;
+
+}
+
+.key_number_hw:hover
+{
+
+    height: 50px !important;
+    background: rgb(50, 49, 49);
+    color: #fdfdfe;
+    font-weight: bolder;
+    cursor: pointer;
+
+}
+
+.key_number_hw_light
+{
+
+    height: 50px !important;
+    background: #fdfdfe;
+    color: rgb(17, 17, 17);
+    font-size: x-large;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 0px !important;
+
+}
+.key_number_hw_light:hover
+{
+
+    height: 50px !important;
+    background: #6a6a6c;
+    color: rgb(17, 17, 17);
+    font-size: x-large;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 0px !important;
+
+}
+
+.key_number:hover
+{
+    background: rgb(17, 17, 17);
+    color: #fdfdfe;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.btn_25_px
+{
+    width: 25px;
+    height: 25px;
+}
+
+.pointer
+{
+    cursor: pointer;
+}
+.main_cards
+{
+    height: 150px;
+}
+
+.bill-button
+{
+    width: 50%;
+    height: 100px;
+}
+
+
+.bill-button-icon
+{
+    height: 40px;
+    width: 40px;
+    margin-bottom:.25rem!important
+}
+
+.hover_large
+{
+    color: #ccc;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hover_large:hover
+{
+    color: #6570b8;
+    cursor: pointer;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.inside-button
+{
+    width: 25%;
+    height: 80px;
+    color: #fdfdfe;
+}
+
+.facilities
+{
+    border: 5px inset #fdfdfe;
+    background: #CDEDF6;
+}
+
+.inside-facility
+{
+    width: 25%;
+    height: 80px;
+}
