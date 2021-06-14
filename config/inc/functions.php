@@ -39,6 +39,43 @@
         return $pdo;
     }
 
+    ##column sum
+    function getSumOfColumn($table , $column , $condition  , $connection , $currency = 0)
+    {
+        if ($condition != 'none')
+        {
+            $sql = "select SUM($column) from $table WHERE $condition";
+        }
+        else
+        {
+            $sql = "SELECT SUM($column) from `$table`";
+        }
+        $stmt  = $connection->prepare($sql);
+        $stmt->execute();
+        $stmt_res = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt_res['SUM('.$column.')'];
+        if ($result === NULL)
+        {
+            $x = number_format(0.00);
+        }
+        else
+        {
+            //explode result
+            $x = number_format($result,2);
+
+        }
+
+        if ($currency === 0)
+        {
+            return $x;
+        }
+        else
+        {
+            return $_SESSION['currency'].' '.$x;
+        }
+
+    }
+
     ##count database rows
     function row_count($table , $condition, $database_connection)
     {
@@ -56,6 +93,12 @@
         return $stmt->rowCount();
 
 
+    }
+
+    ## echo with line break
+    function br($str)
+    {
+        echo $str."<br>";
     }
 
     ##fech row
@@ -191,5 +234,16 @@
 
     }
 
+    ##price value
+    function price_value($value)
+    {
+        if(strpos($value, '.') !== false) {
+            return $value;
+        } else {
+            return $value.'.00';
+        }
+
+
+    }
 
 

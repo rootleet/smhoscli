@@ -87,6 +87,7 @@ article
 .bg-dark-x{background-color: #505050 !important}
 .bg-bill-default{background: #3A1D88 !important; color: #fdfdfe !important}
 .bg-bill-header{background: #3757F6 !important; color: #fdfdfe}
+.bg-mag{background-color: #FF8261 !important; color: #fdfdfd !important}
 /*BACKGROUND COLORS*/
 
 
@@ -115,6 +116,11 @@ article
     cursor: pointer;
     border-radius: 0px !important;
 
+}
+
+.err_box
+{
+    height: 50px !important;
 }
 
 .key_number_hw:hover

@@ -2,6 +2,8 @@
 
     session_start();
     //requirements
+    $srv_root = $_SERVER['DOCUMENT_ROOT'];
+
     require 'functions.php';
     //core values
     $db_host = 'localhost';
@@ -9,6 +11,20 @@
     $db_password = "Sunderland@411";
     $db = 'SMHOS';
     $route = database_connect($db_host, $db_user, $db_password, $db);
+    $local_sqlite = $srv_root.'config/database/phpsqlite.db';
+    $l_route = new PDO("sqlite:$local_sqlite");
+
+
+
+
+    $today = date('M/d/Y');
+    $time = date("H:m:i");
+
+    $payment_options = array(
+        "Cash Payment"=>1,
+        "Momo Payment"=>2,
+        "Card Payment"=>3
+    );
 
 
 
@@ -42,6 +58,22 @@
                 $_SESSION['bill_item'] = [];
             }
 
+            if(!isset($_SESSION['bill_total']))
+            {
+                $_SESSION['bill_total'] = 0;
+            }
+
+            if(!isset($_SESSION['p_method']))
+            {
+                $_SESSION['p_method'] = 0;
+            }
+            $p_method = $_SESSION['p_method'];
+
+            
+
+            //current_bill
+            $current_bill = get_row("bookings", "`date_booked` = '$today'", $route) + 1;
+
             //active category
             if (!isset($_SESSION['act_cat']))
             {
@@ -68,22 +100,50 @@
 
             $bill = $_SESSION['bill_item'];
 
-            //array_push($_SESSION['bill_item'], array(18,"1:1"));
+            $bil_total= price_value($_SESSION['bill_total']);
+
+            //get total bill
+            if(count($bill) > 0)
+            {
+
+            }
+
+            //check if current bill has some stuffs
+            $sql = "SELECT * FROM `current_bill` ORDER BY `id` DESC";
+            $stmt = $l_route->prepare($sql);
+            $stmt->execute();
+
+            if ($data = $stmt->fetch()) {
+                $bill_exist = 'yes';
+                $bill_total = getSumOfColumn("current_bill",'total_amount',"`status` = 0",$l_route);
+            } else {
+                $bill_exist = 'no';
+            }
+
+            //get bill from local storage
+            $bill_sql = "SELECT * FROM `current_bill` ORDER BY `id` DESC";
+            $bill_stmt = $l_route->prepare($bill_sql);
+            $bill_stmt->execute();
+
+            $bill_count = $bill_stmt->rowCount();
+
+            //get tax
+            $tax_sql = "SELECT * FROM `current_tax` ORDER BY `id` DESC";
+            $tax_stmt = $l_route->prepare($tax_sql);
+            $tax_stmt->execute();
+            if($tax_e = $tax_stmt->fetch())
+            {
+                $tax_exist = 'yes';
+            } else {
+                $tax_exist = 'no';
+            }
+
+            $tax_sql_x = "SELECT * FROM `current_tax` ORDER BY `id` DESC";
+            $tax_stmt_x = $l_route->prepare($tax_sql_x);
+            $tax_stmt_x->execute();
 
 
-//            $bill_count = 0;
-//            while ($bill_count < count($_SESSION['bill_item']))
-//            {
-//                $d = $_SESSION['bill_item'][$bill_count];
-//                $facility = $d[0];
-//                $quantity = $d[1];
-//
-//                echo "Facility : ".$facility . '<br>';
-//                echo "Quantity ".$quantity . '<br>';
-//                $bill_count ++;
-//            }
-//
-//            die();
+
 
         }
 
