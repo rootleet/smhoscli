@@ -270,5 +270,37 @@
             gb();
         }
 
+        ##delete bill item
+        elseif(isset($_GET['del_bill_item']))
+        {
+            $bill_item = $_GET['item'];
+            //get bill item details
+            $bo_d = get_row("current_bill","`id` = $bill_item", $l_route);
+            $bill_tax_description = $bo_d['tax_desc'];
+            $bill_tax_value = price_value($bo_d['total_amount'] - $bo_d['taxable_amount']);
+
+            //get tax details
+            $curr_tax_d = get_row("current_tax", "`t_desc` = '$bill_tax_description'", $l_route);
+            $t_desc = $curr_tax_d['t_desc'];
+            $tax_value = price_value($curr_tax_d['amount_value']);
+
+            //compare bill tax value and curr vat value
+            if($bill_tax_value === $tax_value)
+            {
+                //delete vat
+                delete("current_tax","`t_desc` = '$t_desc'",$l_route);
+            }
+            else
+            {
+                //sub from vat value
+                $tv = $tax_value - $bill_tax_value;
+                update("current_tax","`t_desc` = '$t_desc'","`amount_value` = $tv",$l_route);
+            }
+
+            //delete bill
+            delete("current_bill","`id` = $bill_item",$l_route);
+            gb();
+        }
+
 
     }

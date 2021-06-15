@@ -158,6 +158,26 @@
         }
     }
 
+    ##delete from database table
+    function delete($table, $condition, $connection)
+    {
+        if($condition === 'none')
+        {
+            $sql = "DELETE FROM `$table`";
+        }
+        else
+        {
+            $sql = "DELETE FROM `$table` WHERE $condition";
+        }
+
+        $stmt = $connection->prepare($sql);
+        if($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     ##go back to previous page
     function gb()
@@ -244,6 +264,27 @@
         }
 
 
+    }
+
+    ##update table
+    function update($table,$condition,$set,$connection)
+    {
+        if($condition === 'none')
+        {
+            $sql = "UPDATE `$table` SET $set";
+        } else {
+            $sql = "UPDATE `$table` SET $set WHERE $condition";
+        }
+
+        $stmt = $connection->prepare($sql);
+        if($stmt->execute())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

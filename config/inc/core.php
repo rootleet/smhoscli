@@ -92,9 +92,18 @@
             //get facilities
             $facilities_count = row_count("facilities" , "`facCat` = $act_cat", database_connect($db_host, $db_user, $db_password, $db));
 
-            $facilities_sql = "SELECT * FROM `facilities` WHERE `facCat` = $act_cat ORDER BY `name`";
+            $facilities_sql = "SELECT * FROM `facilities` WHERE `facCat` = $act_cat ORDER BY `name` ASC";
             $facilities_stmt = $route->prepare($facilities_sql);
             $facilities_stmt->execute();
+
+            //get first facility
+            if(!isset($_SESSION['act_fac']))
+            {
+                $first_fac = query("SELECT * FROM `facilities` WHERE `facCat` = $act_cat ORDER BY `name` ASC LIMIT 1",$route);
+                $_SESSION['act_fac'] = $first_fac['id'];
+            }
+            $act_fac = $_SESSION['act_fac'];
+
 
 
 

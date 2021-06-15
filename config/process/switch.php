@@ -12,6 +12,10 @@
         else
         {
             $_SESSION['view'] = $trigger;
+            if($trigger === 'bill')
+            {
+                $_SESSION['main'] = 'bill';
+            }
         }
 
         gb();
